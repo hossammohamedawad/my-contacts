@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hossam_app/widgets/contacts_grid.dart';
 import 'package:hossam_app/widgets/social_media_icon.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -76,20 +77,7 @@ class MyContacts extends StatelessWidget {
               SizedBox(
                 height: 0,
               ),
-              GridView.builder(
-                itemCount: socialMedia.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3),
-                itemBuilder: (context, index) {
-                  return SocialMediaIcon(
-                    socialMedia: socialMedia.keys.toList()[index],
-                    socialMediaLink: socialMedia.values.toList()[index],
-                  );
-                },
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.all(40),
-              )
+              ContactsGrid(socialMedia: socialMedia)
             ],
           ),
         ),
